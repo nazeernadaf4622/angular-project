@@ -1,0 +1,46 @@
+<!-- [formGroup]="registerForm" (ngSubmit)="registerSubmit()" -->
+<div class="container-fluid h-100 w-100" id="image">
+  <div class='col-12 login-padding'>
+    <mat-card class="login-card">
+      <h3 class="font-weight-bold text-center" style="color: white;">WELCOME TO JAMMU SMART <br><span>
+          CITY
+        </span></h3>
+      <form [formGroup]="loginForm" (ngSubmit)="loginFormSubmit()">
+        <div class="col-12">
+          <div class="form-group">
+            <label class="label-text">Username:</label>
+            <input class="form-control form-control-sm" type="text" placeholder="Username" formControlName="name">
+            <small class="form-text " style="color: red;" *ngIf="f['name'].touched && f['name'].errors?.['required']">
+              Username required. !
+            </small>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group py-2">
+            <label class="label-text">Password:</label>
+            <input class="form-control form-control-sm" type="password" placeholder="Password"
+              formControlName="password">
+            <small class="form-text " style="color: red;"
+              *ngIf="f['password'].touched && f['password'].errors?.['required']">
+              Password required.!
+            </small>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group px-5">
+            <button type="submit" class="form-control form-contol-sm primary-button mb-2"
+              [disabled]="!loginForm.valid">Login</button>
+            <span class="ml-4 " style="color: white; font-size: 11px;">Powerde by
+              <a href="https://bel-india.in/" target="https://bel-india.in/"
+                style="color: blue;font-size: 11px;text-decoration: underline;cursor: pointer;">
+                Bharat Electronics Limited</a></span>
+          </div>
+        </div>
+
+      </form>
+    </mat-card>
+
+  </div>
+</div>

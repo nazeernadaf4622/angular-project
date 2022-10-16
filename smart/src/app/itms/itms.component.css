@@ -1,0 +1,52 @@
+.example-container {
+    height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .example-sidenav {
+     user-select: none;
+  }
+  .full-width {
+    width: 100%;
+  }
+  .menu-button {
+    transition: 300ms ease-in-out;
+    transform: rotate(0deg);
+  }
+  .menu-button.rotated {
+    transform: rotate(180deg);
+  }
+  .submenu {
+    overflow-y: hidden;
+    transition: transform 300ms ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    padding-left: 30px;
+  }
+  .submenu.expanded {
+    transform: scaleY(1);
+  }
+
+  .language{
+    border-color: transparent;
+    align-items: center;
+    margin-left: 500px;
+  }
+  /* .dropdown-language{
+    color: transparent !important;
+  } */
+
+  .signout{
+    border-color: transparent;
+
+  }
+
+  :host ::ng-deep .mat-list-base .mat-list-item.mat-list-item-with-avatar, .mat-list-base .mat-list-option.mat-list-item-with-avatar{
+    height: 34px !important; /* default is 72px */
+  }
+

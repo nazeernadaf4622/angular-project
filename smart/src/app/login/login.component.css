@@ -1,0 +1,30 @@
+#image{
+    background-image: url('../../assets/background1.jpg');
+    background-size: cover;
+    height: 625px;
+    width: 200px;
+}
+
+.login-card{
+    background-color: black !important;
+    width: 400px;
+}
+
+.login-padding{
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.label-text{
+    color: white !important;
+}
+
+.primary-button{
+    background-color: yellow !important;
+    text-align: black !important;
+    border-style: solid;
+    border-color: black;
+}
+
+/* .primary-button */
