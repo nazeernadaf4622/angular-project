@@ -1,0 +1,278 @@
+<div class="container-fluid page" >
+    <div class="page__content shadow p-3 position-relative" style="color: red !important;">
+        <div style="width: 70%;margin-left:13%; box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;"
+            class="page__content-data position-relative"><br>
+            <h2 style="margin-left:4%; color:rgb(180, 3, 56)">Please fill in your details to proceed.</h2>
+            <mat-vertical-stepper [linear]="false" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                    <form [formGroup]="firstFormGroup">
+                        <ng-template matStepLabel><b>Fill out your Basic Details</b></ng-template>
+                        <div class="form-group row wrap d-flex" >
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="FirstName" formControlName="uFirstName" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="LastName" formControlName="uLastName" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field  style="width:300px">
+                                    <input matInput placeholder="EmailId" formControlName="uEmailId" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field color="accent" style="width:300px">
+                                    <mat-label>Dob</mat-label>
+                                    <input formControlName="uDob" matInput [matDatepicker]="picker2">
+                                    <mat-hint>MM/DD/YYYY</mat-hint>
+                                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <label id="example-radio-group-label" style="color: #282626;"> Gender:</label>
+                        <mat-radio-group  formControlName="uGender" aria-label="Select an Gender" style="color: #282626;">&nbsp;&nbsp;
+                            <mat-radio-button value="M">Male</mat-radio-button>
+                            <mat-radio-button value="F" style="margin: 0% 1% 0% 3%;">Female</mat-radio-button>
+                        </mat-radio-group>
+                        
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="contactNo" formControlName="ucontactNo" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="WhatsAppNo" formControlName="uWassupNo" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="Address" formControlName="uAddress" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="ResidingCountry" formControlName="uResidingCountry" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="State" formControlName="uState" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="Location" formControlName="uLocation" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                    <form [formGroup]="secondFormGroup">
+                        <ng-template matStepLabel><b>Fill out your work Details</b></ng-template>
+                        <mat-form-field style="width: 680px;">
+                            <mat-select matNativeControl formControlName="uProfession"  placeholder="Profession" >
+                              
+                              <mat-option *ngFor="let i of usergroups" [value]="i.tID">
+                                {{i.tName}}
+                              </mat-option>
+                            </mat-select>
+                          <!-- <input formControlName="tblcompanyId" matInput
+                              placeholder="Comapny Group"> -->
+                          <mat-error>This field is mandatory.</mat-error>
+                      </mat-form-field >
+                      <br>
+                        <div *ngIf="this.firstFormGroup.value.uProfession==='TID00000001' ">
+                            <div class="form-group row">
+                                <div class="col-md-5">
+                                    <mat-form-field >
+                                        <input matInput placeholder="uEducation" formControlName="uEducation" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field>
+                                        <input matInput placeholder="uEducation" formControlName="uEducation" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                    </div>
+                        <div *ngIf="this.secondFormGroup.value.uProfession==='TID00000002' || this.secondFormGroup.value.uProfession==='TID00000001'">
+                            <div class="form-group row">
+                                <div class="col-md-5">
+                                    <mat-form-field style="width:300px">
+                                        <input matInput placeholder="uCompany" formControlName="uCompany" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field style="width:300px">
+                                        <input matInput placeholder="uDesignation" formControlName="uDesignation" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-5">
+                                    <mat-form-field style="width:300px">
+                                        <input matInput placeholder="uYearofExp" formControlName="uYearofExp" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5" >
+                                    <mat-form-field style="width:300px">
+                                        <input matInput placeholder="uDepartment" formControlName="uDepartment" required>
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+                             <mat-form-field style="width: 680px;">
+                            <input matInput placeholder="uWorkLocation" formControlName="uWorkLocation" required>
+                        </mat-form-field> 
+                    
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <mat-form-field style="width:300px">
+                                <input matInput placeholder="uExtracirricular1" formControlName="uExtracirricular1" required>
+                                <mat-error>This field is mandatory.</mat-error>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-md-5">
+                            <mat-form-field style="width:300px">
+                                <input matInput placeholder="uExtracirricular2" formControlName="uExtracirricular2" required>
+                                <mat-error>This field is mandatory.</mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                        <mat-form-field style="width: 680px;">
+                            <input matInput placeholder="uExtracirricular3" formControlName="uExtracirricular3"
+                                required>
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext class="nextbutton">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step [stepControl]="thirdFormGroup">
+                    <form [formGroup]="thirdFormGroup">
+                        <ng-template matStepLabel><b>Complete the form</b></ng-template>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uHobbies1" formControlName="uHobbies1" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uHobbies2" formControlName="uHobbies2" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uHobbies3" formControlName="uHobbies3" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uObjectieves_11" formControlName="uObjectieves_11" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uObjectieves_12" formControlName="uObjectieves_12" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uObjectieves_13" formControlName="uObjectieves_13" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uObjectieves_21" formControlName="uObjectieves_21" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-5">
+                                <mat-form-field style="width:300px">
+                                    <input matInput placeholder="uObjectieves_22" formControlName="uObjectieves_22" required>
+                                    <mat-error>This field is mandatory.</mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <mat-form-field style="width: 680px;">
+                            <input matInput placeholder="uObjectieves_23" formControlName="uObjectieves_23" required>
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field [hidden]="true">
+                            <input matInput placeholder="UserID" formControlName="uUserID" >
+                        </mat-form-field>
+                        <br>
+                        <div>
+                            <button mat-button matStepperPrevious>Back</button>
+                            <button mat-button matStepperNext class="nextbutton">Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel><b>Done</b></ng-template>
+                    You are done now.
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button (click)="stepper.reset()" class="nextbutton">Reset</button>
+                        <button  *ngIf="profile_exist ===false"  mat-button (click)="submit()" class="submitbutton" >Submit</button>
+                        <button *ngIf="profile_exist ===true" mat-button (click)="update()" class="submitbutton" >Update</button>
+                    </div>
+                </mat-step>
+            </mat-vertical-stepper>
+
+            <div class="bg"></div>
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <!-- <div class="content">
+
+</div> -->
+        </div>
+    </div>
+</div>

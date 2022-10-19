@@ -1,0 +1,100 @@
+<div class="container-head ">
+  <div class="d-flex justify-content-around">
+    <div class="quiz-header" style="width:90%;">
+      <h3 class="fw-bold" style="font-size: 30px; color: #fff;padding-top: 2%;text-align:center; ">Limeneal Wheel Assesement Test</h3>
+    </div>
+  </div>
+  <div class="d-flex justify-content-around py-2">
+    <div class="question-remain">Question {{pager.index + 1}} to  {{pager.index + 10}} of {{pager.count}}</div>
+    <div *ngIf="config.duration" class="timer">
+      <h5>Time: {{ellapsedTime}} / {{duration}}</h5>
+    </div>
+  </div>
+</div>
+
+<div class="container-head bg-light " 
+  style="box-shadow: 4px 4px 4px 4px rgb(0 0 0 / 20%); border-radius: 20px; margin:2% ! important;">
+  <div class="question">
+    <div *ngFor="let sort of filteredQuestions;" style="padding: 1rem;">
+      <h6 style="font-size: 1.2rem; font-weight: 500;">{{sort.sStatementID|slice:9:13 }}. {{sort.sDescription}}</h6>
+      <div class="d-flex options radio" style=" flex-direction: row; flex-wrap: wrap;">
+        <!-- <div *ngFor="let option of sort.options" style="margin-right:1% !important;">
+            <input id="{{option.id}}" type="radio" [(ngModel)]="option.selected" (change)="onSelect(sort, option);" [checked]="false"  [value]="option"/> {{option.text}} 
+            <input type="radio" name="option{{sort.statementID}}" class="input-radio"
+              [(ngModel)]="options[sort.statementID]" [checked]="options[sort.statementID]"
+              value="{{sort.statementID}}-{{option.id}}" (change)="onSelect(sort, option);" data-order_button_text="" />
+              <label> {{option.text}}</label>
+          </div> -->
+        <div class="" *ngFor="let option of sort.options" style="margin-right:1% !important;margin-bottom:1%">
+          <label  class="rad-label" >
+            <input  class=" rad-input" type="radio" name="option{{sort.sStatementID}}"
+              value="{{sort.sStatementID}}-{{option.id}}" (change)="onSelect(sort, option);"
+              [(ngModel)]="option.selected" [checked]="options[sort.sStatementID]">
+            <div class="rad-design"></div>
+            <div style="font-size: 1.1rem !important" class="rad-text" for="flexRadioDefault1">
+              {{option.text}}
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="text-center">
+      <button class="btn btn-default" *ngIf="config.allowBack" (click)="goToback(0);">First</button>&nbsp;
+      <button class="btn btn-default" *ngIf="config.allowBack"
+        (click)="goToback(pager.index - uNo_of_questions);">Prev</button>&nbsp;
+      <button class="btn btn-primary" (click)="goTo(pager.index + uNo_of_questions);">Next</button>&nbsp;
+      <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
+    </div>
+  </div>
+</div>
+<div class="result" *ngIf="mode=='result'">
+  <a routerLink="/submit"></a>
+
+</div>
+
+<div class="bottom" *ngIf="mode!='result'">
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Review</button>&nbsp;&nbsp;
+  <button class="btn btn-primary" (click)="Submit();" >Submit Test</button>
+</div>
+
+<!-- <div class="result" *ngIf="mode=='result'">
+  <h2>Quiz Result</h2>
+  <div *ngFor="let question of statements; let index = index">
+    <div class="result-question">
+      <h5>{{index + 1}}. {{question.statement}}</h5>
+      <div class="row">
+        <div class="col-6" *ngFor="let Option of question.options">
+          <input id="{{Option.id}}" type="radio" disabled="disabled" [(ngModel)]="Option.selected" /> {{Option.text}}
+        </div>
+      </div>
+      <div class="p-1 m-2 alert {{ isCorrect(question) == 'correct'? 'alert-success': 'alert-danger'}}">Your answer is {{isCorrect(question)}}.</div>
+    </div>
+  </div>
+  <h4 class="alert alert-info text-center">You may close this window now.</h4>
+</div> -->
+
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Review</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row row-cols-5 text-center">
+          <div class=" cursor-pointer" *ngFor="let question of statements; let index = index;">
+            <div (click)="goTo(index)"
+              class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">
+              {{index + 1}}. {{ isAnswered(question) }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

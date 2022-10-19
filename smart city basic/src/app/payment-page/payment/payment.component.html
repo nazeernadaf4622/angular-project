@@ -1,0 +1,289 @@
+
+<div class="wrapper">
+    <div class="wizard">
+        <div class="inner">
+        
+            <div class="image-holder" >
+                <img src="../assets/images/banking_image.jpg" alt="" height="520px" width="390px">
+            </div>
+            <div class="form-content">
+                <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                    <ng-template matStepperIcon="account_circle">
+                        <span class="material-icons">account_circle</span>
+                      </ng-template>
+                    
+                    <ng-template matStepperIcon="paid">
+                        <span class="material-icons">paid</span>
+                      </ng-template>
+                      <ng-template matStepperIcon="payment">
+                        <span class="material-icons">payment</span>
+                      </ng-template>
+                    <mat-step [stepControl]="firstFormGroup" (selectionChange)="selectionChange()"  state="account_circle">
+                        <form [formGroup]="firstFormGroup">
+                            <ng-template matStepLabel><span class="material-icons" style=" font-size: 30px !important;color:#3e3684">account_circle</span></ng-template>
+                            <h2>Please select a option</h2>
+                            <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-1">
+                                <li class="nav-item" hidden> <a data-toggle="pill" href="#None"
+                                        class="nav-link active "> <i class="fas fa-credit-card mr-2"></i> None </a>
+                                </li>
+                                <li class="nav-item"
+                                    style="font-weight:900;background-color: #3e3684;border-radius: 10px;color:white; "> <a
+                                        data-toggle="pill" href="#Company" class="nav-link " (click)="fire_evnt(true)"  style="color:white;"><span class="material-icons">business</span><span >Company</span> 
+                                    </a>    </li>&nbsp;&nbsp;
+                                    
+                                <li class="nav-item"
+                                    style="font-weight:700;background-color: #3e3684;border-radius: 10px;color:white;"> <a
+                                        data-toggle="pill" href="#Individual"  (click)="fire_evnt(false)"  class="nav-link " style="color:white;"><span class="material-icons">
+                                            assignment_ind </span> Individual</a> </li>
+                            </ul>
+                            
+                            <div class="tab-content">
+                                <div id="None" class="tab-pane fade show active">
+                                </div>
+                                <div id="Company" class="tab-pane fade">
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Organization Name</mat-label>
+                                        <input matInput formControlName="uOrgName" placeholder="Organization Name"  required>
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Organization Code</mat-label>
+                                        <input matInput formControlName="orgCode" placeholder="Organization Code" required>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Street No</mat-label>
+                                        <input matInput formControlName="orgAdStreetNo" placeholder="Street No">
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Street Name</mat-label>
+                                        <input matInput formControlName="orgAdStreetName" placeholder="Street Name" required>
+                                    </mat-form-field>
+                                    <br>
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Phone No</mat-label>
+                                        <input matInput formControlName="orgMainPhone" placeholder="Phone No" required>
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>User Type</mat-label>
+                                        <mat-select [(value)]="selectedUser" formControlName="orgUserType" placeholder="User Type">
+                                            <mat-option>None</mat-option>
+                                            <mat-option value="option1" id="1">Student</mat-option>
+                                            <mat-option value="option2" id="2">Employee</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 400px;">
+                                        <mat-label>User Limit</mat-label>
+                                        <input matInput formControlName="orgRegUserLimit" placeholder="User Limit" required>
+                                    </mat-form-field>
+                                </div>
+                                <div id="Individual" class="tab-pane fade pt-3">
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Email</mat-label>
+                                        <input matInput formControlName="uUserEmail" placeholder="Email" required>
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput formControlName="password" placeholder="Password">
+                                    </mat-form-field><br>
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-label>Name</mat-label>
+                                        <input matInput formControlName="uUsername" placeholder="Name" required>
+                                    </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <mat-form-field style="width: 190px;">
+                                        <mat-select matNativeControl [(ngModel)]="selectedUser" formControlName="uType"  placeholder="User  Type">
+                                            <mat-option *ngFor="let i of usergroups" [value]="i.tID">
+                                              {{i.tName}}
+                                            </mat-option>
+                                          </mat-select>
+                                    </mat-form-field><br>
+                                    <mat-form-field style="width: 400px;">
+                                        <mat-label>Address</mat-label>
+                                        <input matInput formControlName="uIpAddress" placeholder="Address">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div>
+                                <button mat-button matStepperNext  (click)="firstNext()"
+                                    style="margin-left: 350px; background-color:#3e3684; width:100px;height:32px;border-radius:10px;border: none;color:white;">Next</button>
+                            </div>
+                        </form>
+                    </mat-step>
+                    <mat-step [stepControl]="secondFormGroup" state="paid">
+                        <form [formGroup]="secondFormGroup">
+                            <ng-template matStepLabel><span class="material-icons" style="font-size: 30px !important;color:#3e3684">paid</span></ng-template>
+                              <div class="content" style="display:flex; flex-direction: row;margin-top: 48px;">
+                                <mat-card class="example-card card1" *ngFor ="let cards of cardType">
+                                        <mat-card-content >
+                                            <h4 class="card__title">
+                                                {{cards.name}}
+                                            </h4>
+                                            <h2 class="card__price">
+                                                {{cards.price }}
+                                            </h2>
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                            <button mat-button matStepperNext (click)="secondNext(cards)" class="card__btn">
+                                                Select
+                                            </button>
+                                        </mat-card-actions>
+                                </mat-card>
+                             </div>
+                                <button mat-button matStepperPrevious
+                                    style="margin-left: 35px; background-color:#3e3684; width:100px;height:32px;border-radius:10px;border: none;color:white;margin-top: 28px;">Back</button>
+                        </form>
+                    </mat-step>
+                    <mat-step  [stepControl]="secondFormGroup" state="payment">
+                        <form [formGroup]="thirdFormGroup">
+                        <ng-template matStepLabel><span class="material-icons" style="font-size: 30px !important;color:#3e3684">payment</span></ng-template>
+                        <!-- <div class="tabs mt-3"> -->
+                        <div class="bg-white shadow-sm pt-4 pl-2 pr-2 pb-2">
+                            <!-- Credit card form tabs -->
+                            <ul role="tablist" class="nav bg-light nav-pills rounded nav-fill mb-3">
+                                <li class="nav-item"> <a data-toggle="pill" href="#credit-card"
+                                        class="nav-link active ">  Credit Card
+                                    </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#paypal" class="nav-link "> Paypal </a> </li>
+                                <li class="nav-item"> <a data-toggle="pill" href="#net-banking" class="nav-link "> 
+                                            Net Banking </a> </li>
+                            </ul>
+                        </div> <!-- End -->
+
+                        <div class="tab-content">
+                            <div id="credit-card" class="tab-pane fade show active">
+                                    <mat-form-field style="width: 400px;">
+                                        <mat-label>Card Name</mat-label>
+                                        <input matInput  placeholder="Card Name"  required>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 400px;">
+                                        <mat-label>Card Number</mat-label>
+                                        <input matInput  placeholder="Card Number"  required>
+                                    </mat-form-field>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <mat-form-field style="width: 90px;">
+                                            <mat-label>Expr Month</mat-label>
+                                            <mat-select [(value)]="selected1" placeholder="MM" required>
+                                                <mat-option value="m1" id="1">01</mat-option>
+                                                <mat-option value="m2" id="2">02</mat-option>
+                                                <mat-option value="m3" id="3">03</mat-option>
+                                                <mat-option value="m4" id="4">04</mat-option>
+                                                <mat-option value="m5" id="5">05</mat-option>
+                                                <mat-option value="m6" id="6">06</mat-option>
+                                                <mat-option value="m7" id="7">07</mat-option>
+                                                <mat-option value="m8" id="8">08</mat-option>
+                                                <mat-option value="m9" id="9">09</mat-option>
+                                                <mat-option value="m10" id="10">10</mat-option>
+                                                <mat-option value="m11" id="11">11</mat-option>
+                                                <mat-option value="m12" id="12">12</mat-option>
+                                            </mat-select>
+                                        </mat-form-field><span style="font-size: 20px;font-weight: 700;">/</span>
+                                        <mat-form-field style="width: 90px;">
+                                            <mat-label>Expr Year</mat-label>
+                                            <mat-select [(value)]="selected2" placeholder="YY" required>
+                                                <mat-option value="y1" >22</mat-option>
+                                                <mat-option value="y2" >23</mat-option>
+                                                <mat-option value="y3" >24</mat-option>
+                                                <mat-option value="y4" >25</mat-option>
+                                                <mat-option value="y5" >26</mat-option>
+                                                <mat-option value="y6" >27</mat-option>
+                                                <mat-option value="y7" >28</mat-option>
+                                                <mat-option value="y8" >29</mat-option>
+                                                <mat-option value="y9" >30</mat-option>
+                                                <mat-option value="y10">31</mat-option>
+                                                <mat-option value="y11" >32</mat-option>
+                                                <mat-option value="y12" >33</mat-option>
+                                                <mat-option value="y13" >34</mat-option>
+                                                <mat-option value="y14" >35</mat-option>
+                                                <mat-option value="y15">36</mat-option>
+                                                <mat-option value="y16">37</mat-option>
+                                                <mat-option value="y17">38</mat-option>
+                                                <mat-option value="y18">39</mat-option>
+                                                <mat-option value="y19">40</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                        <mat-form-field  style="width: 100px; margin-left: 80px;">
+                                            <mat-label data-toggle="tooltip"
+                                            title="Three digit CV code on the back of your card">CVV</mat-label>
+                                            <input matInput placeholder="CVV"  required>
+                                        </mat-form-field>
+                                </div>
+                                </div>
+                                <mat-form-field style="width: 400px;">
+                                    <input matInput formControlName="pAmount" [readonly]="true" style="font-size: larger;"><p style="color: #3e3684; font-weight:600;font-size: larger;">Total Amount:&nbsp;{{this.total}}</p>
+                                </mat-form-field>
+                                <div class="row">
+                                <button mat-button (click)="stepper.reset()"
+                                 style="background-color:#3e3684; width:100px;height:32px;border-radius:10px;border: none;color:white;">Reset</button> &nbsp;&nbsp;&nbsp;
+                                 <button type="button" (click)="pay()" class="subscribe shadow-sm"  data-toggle="modal" data-target="#exampleModalCenter" style="background-color:#3e3684;width:200px;height:32px;border-radius:10px;border: none;color:white;"> Confirm Payment </button>
+                                </div>
+                                </div> 
+                            <!-- Paypal info -->
+                            <div id="paypal" class="tab-pane fade ">
+                                <h4 class="pb-2">Select your paypal account type</h4>
+                                <div class="form-group "> <label class="radio-inline"> <input type="radio"
+                                            name="optradio" checked> Domestic </label> <label class="radio-inline">
+                                        <input type="radio" name="optradio" class="ml-5">International </label></div>
+                                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter" style="background-color:#3e3684;border: none;"><i class="fab fa-paypal mr-2"></i>
+                                        Log into my Paypal</button> 
+                                        <button mat-button (click)="stepper.reset()"
+                            style="margin-left: 350px;background-color:#3e3684; width:100px;height:32px;border-radius:10px;border: none;color:white;">Reset</button>
+                                <p class="text-muted"> Note: After clicking on the button, you will be directed to a
+                                    secure gateway for payment. After completing the payment process, you will be
+                                    redirected back to the website to view details of your order. </p>
+                            </div> <!-- End -->
+                            <!-- bank transfer info -->
+                            <div id="net-banking" class="tab-pane fade ">
+                                <div class="form-group "> <label for="Select Your Bank">
+                                        <!-- <h5>Select your Bank</h5> -->
+                                    </label> <select class="form-control" id="ccmonth">
+                                        <option value="" selected disabled>--Please select your Bank--</option>
+                                        <option>Bank 1</option>
+                                        <option>Bank 2</option>
+                                        <option>Bank 3</option>
+                                        <option>Bank 4</option>
+                                        <option>Bank 5</option>
+                                        <option>Bank 6</option>
+                                        <option>Bank 7</option>
+                                        <option>Bank 8</option>
+                                        <option>Bank 9</option>
+                                        <option>Bank 10</option>
+                                    </select> </div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#exampleModalCenter" style="background-color:#3e3684;border: none;">
+                                                 Proceed Payment</button> 
+                                                 <button mat-button (click)="stepper.reset()"
+                            style="margin-left: 350px;background-color:#3e3684; width:100px;height:32px;border-radius:10px;border: none;color:white;">Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </mat-step>
+                </mat-horizontal-stepper>
+            </div>
+        </div>
+    </div>
+    <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button> -->
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color:rgb(110, 64, 235); height:54px ;">
+            <h2 class="modal-title" id="exampleModalLongTitle" style="display:flex;flex-wrap:wrap; flex-direction: column;align-items: center; color:rgb(248, 248, 250);;">Payment Confirmation</h2>
+            </div>
+        <div class="modal-body">
+          <h2 style="display: flex;flex-wrap: wrap; flex-direction: column;align-items: center;">Payment Successfull</h2>
+          <h3 style="display: flex;flex-wrap: wrap; flex-direction: column;align-items: center; ">Please Login</h3>
+        </div>
+        <div class="modal-footer">
+            <span style="color:#3e3684;font-size: larger;">Click here to</span>
+          <button type="button" class="btn btn-secondary"  (click)="loginpage()" data-dismiss="modal" style="background-color:#3e3684;border: none;">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,289 @@
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3 mt-2">Clients & Organizations</div>
+    <div class="page__content shadow p-3 position-relative">
+      
+        <!-- div  class="page__content-data position-relative   " style="margin-top:14%"> -->
+            <!-- <div >
+                <button   type="button"  mat-raised-button style=" float:right; width: 60px;"
+                    (click)="newform()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </div> -->
+
+            <mat-tab-group style="border:2px sollid green;" mat-align-tabs="start" [(selectedIndex)]="select">
+                
+
+                <mat-tab label="Organization Company List">
+
+                    <mat-form-field appearance="standard">
+                        <mat-label>Filter</mat-label>
+                        <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+                    </mat-form-field>
+
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+                        <ng-container style="display:none!important;" matColumnDef="uOrgID">
+                            <mat-header-cell style="display:none!important;" *matHeaderCellDef>OrganizationID
+                            </mat-header-cell>
+                            <mat-cell style="display:none!important;" *matCellDef="let element">{{element.uOrgID}}
+                            </mat-cell>
+                        </ng-container>
+
+                    
+
+
+                        <ng-container matColumnDef="uOrgName">
+                            <th mat-header-cell *matHeaderCellDef>OrganizationName</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element ">{{element.uOrgName}}
+                            </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="Status">
+                            <th mat-header-cell *matHeaderCellDef>Status</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element ">
+                                <p *ngIf="element.orgActiv===false">IN-ACTIVE </p>
+                                <p *ngIf="element.orgActiv===true">ACTIVE </p>
+                            
+                            </td>
+                               
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="Admin Limit">
+                            <th mat-header-cell *matHeaderCellDef>Admin Limit</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgAdminLimit}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Admin Currrent">
+                            <th mat-header-cell *matHeaderCellDef>Admin Total</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgAdminCurrentValue}}
+                            </td>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="Staff Limit">
+                            <th mat-header-cell *matHeaderCellDef>Staff Limit</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgStaffLimit}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Staff Current">
+                            <th mat-header-cell *matHeaderCellDef>Staff Total</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgStaffCurrentValue}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Reg Limit">
+                            <th mat-header-cell *matHeaderCellDef>Reg.Users Limit</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgRegUserLimit}}
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="Reg Current">
+                            <th mat-header-cell *matHeaderCellDef>Reg.Users Total</th>
+                            <td style="text-align:start;" mat-cell *matCellDef="let element">{{element.orgRegUserCurrentValue}}
+                            </td>
+                        </ng-container>
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row (click)="clickedRows.add(row)" [class.demo-row-is-clicked]="clickedRows.has(row)"
+                            *matRowDef="let row; columns: displayedColumns;" (click)="get_org_details(row)"></tr>
+                    </table>
+
+                    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+                </mat-tab>
+
+                <mat-tab label="Organization Company Details">
+
+                    <form [formGroup]="service.form" class="normal-form" >
+                        <mat-grid-list cols="2" rowHeight="40rem">
+                            <mat-grid-tile>
+                                <div class="controles-container-left">
+                                    <!-- <input type="hidden" formControlName="$key"> -->
+                                    <mat-form-field [hidden]=true >
+                                        <input formControlName="uOrgID" matInput
+                                            placeholder="OrganizationID">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field >
+                                        <input class="input-name" formControlName="uOrgName" matInput
+                                            placeholder="OrganizationName">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgAdStreetNo" matInput
+                                            placeholder="OrganizationAdStreetNo">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgAdStreetName" matInput
+                                            placeholder="OrganizationStreetName">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgMainPhone" matInput
+                                            placeholder="OrganizationMainPhone">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+
+                                    <mat-form-field >
+                                        <input formControlName="orgDeletedBy" matInput
+                                            placeholder="OrganizationDeletedBy">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgDeletedOn" matInput
+                                            placeholder="OrganizationDeletedOn">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgCreatedBy" matInput
+                                            placeholder="OrganizationCreatedBy">
+                                        <mat-error>This field is mandatory.</mat-error>
+                                    </mat-form-field>
+                                   
+                                    
+                                    <mat-form-field>
+                                        <input formControlName="orgCreatedOn" matInput
+                                            placeholder="OrganizationCreatedOn">
+                                    </mat-form-field>
+                                    <!-- <mat-form-field>
+                                        <textarea formControlName="companyAddress" matInput
+                                            placeholder="Company Address"></textarea>
+                                    </mat-form-field> -->
+                                    <div style="margin-top:10px;padding:0%">
+
+                                    </div>
+                                   
+                                </div>
+                                <!-- <div class="button1-row" style="display:flex; float:inline-start;">
+                                    <button mat-raised-button color="primary" (click)="back()">Back</button>
+
+                                </div> -->
+
+                            </mat-grid-tile>
+                            <mat-grid-tile>
+                                
+                                <div class="controles-container-right">
+                                   
+                                    <mat-form-field>
+                                        <input formControlName="orgModifiedBy" matInput
+                                            placeholder="OrganizationModifiedBy">
+                                    </mat-form-field>
+
+                                    <mat-form-field>
+                                        <input formControlName="orgModifiedOn" matInput
+                                            placeholder="OrganizationModifiedOn">
+                                    </mat-form-field>
+                                    <mat-form-field>
+                                        <input formControlName="orgAdminLimit" matInput
+                                            placeholder="OrganizationAdminLimit">
+                                    </mat-form-field>
+                                    <div class="form-field">
+                                        <mat-form-field class="form-field">
+                                            <input formControlName="orgStaffLimit" matInput
+                                                placeholder="OrganizationStaffLimit">
+                                        </mat-form-field>
+                                        <mat-form-field class="form-field">
+                                            <input formControlName="orgRegUserLimit" matInput
+                                                placeholder="OrganizationRegUserLimit">
+                                        </mat-form-field>
+
+                                        <mat-form-field class="form-field">
+                                            <input formControlName="orgRegUserCurrentValue" matInput
+                                                placeholder="OrganizationRegUserCurrentValue">
+                                        </mat-form-field>
+
+                                       <mat-form-field  >
+                                            <mat-select matNativeControl [(ngModel)]="selectedReport"  multiple  formControlName="orgReportType">
+                                                <mat-option *ngFor="let compnaygorup of reportgroups" [value]="compnaygorup.rID">
+                                                     {{compnaygorup.rName}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        
+                                        <mat-form-field >
+                                            <mat-select matNativeControl [(ngModel)]="selectedUser" formControlName="orgUserType">
+                                                <mat-option *ngFor="let compnaygorup of usergroups" [value]="compnaygorup.tID">
+                                                     {{compnaygorup.tName}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                     
+
+                                        <div id="settings" style="display:inline-flex;">
+                                            <h3>Status</h3>&nbsp;<br>
+                                            <mat-slide-toggle [(ngModel)]="vInactiveChecked" (change)="toggle($event)"
+                                                style="margin-left:5%" formControlName="orgActiv">{{status_active}}
+                                            </mat-slide-toggle>
+
+                                        </div>
+                                        <!-- <div id="settings" style="display:inline-flex;">
+                                            <h3>Del/Not</h3>&nbsp;<br>
+                                            <mat-slide-toggle [(ngModel)]="vInactiveChecked" (change)="toggle($event)"
+                                                style="margin-left:5%" formControlName="orgDeletedOrNot">{{status_active}}
+                                            </mat-slide-toggle>
+
+                                        </div> -->
+                                        <!-- <div id="settings" style="display:inline-flex;">
+                                            <h3>Payment</h3>&nbsp;<br>
+                                            <mat-slide-toggle [(ngModel)]="vInactiveChecked" (change)="toggle($event)"
+                                                style="margin-left:5%" formControlName="orgPayment">{{status_active}}
+                                            </mat-slide-toggle>
+
+                                        </div> -->
+
+
+                                    </div><br>
+
+                                    <!-- <div class="col-md-3 mt-5" style="width:100%;border:2px solid green" >
+                                                
+                                        <div id="settings" class="container" style="width:100%;">
+                                            <mat-slide-toggle  style="width:100%;" [(ngModel)]="vInactiveChecked"  formControlName="dInactive">Inactive</mat-slide-toggle>
+                                
+                                        </div>
+                                    </div> -->
+
+                                    <br><br>
+                                    <!-- <div>
+                                        <span class="logo-cls">Upload Logo</span> &nbsp;&nbsp;
+                                        <input type="file" id="img" (change)="onselectFile($event)" #file
+                                            accept="image/*" formControlName="cLogo"><br> <br>
+                                        <img [src]="Url" height="50">
+
+                                    </div> -->
+                                    <br><br>
+                                  
+                        
+                                        <!-- <ng-template #newsubmit> <button mat-raised-button color="primary" type="submit"
+                                            *ngIf="formnew"  >submit</button></ng-template> -->
+
+                               
+
+                                </div>
+                            </mat-grid-tile>
+                            
+                        </mat-grid-list>
+
+                        <div style="float:right;margin-right:4%;margin-bottom:5%;">
+                            <button *ngIf="formnew" class="client-button btn" type="button" (click)="newform()">New</button>&nbsp;
+                            <button *ngIf="!formnew" class="client-button btn"  type="button" (click)="submitForm()">Save</button>&nbsp;
+                            <button *ngIf="formnew" class="client-button btn"  type="button" (click)="onupdate()">Update</button>&nbsp;
+                            <button *ngIf="formnew" class="client-button btn"  type="button" (click)="reset()">Reset</button>&nbsp;
+                           <!-- <button style="color:white;background-color: rgba(98, 95, 95, 0.95);" type="button" class="btn " (click)="deleteItem(this.detailsform.value.vVirtueId)">Delete</button>&nbsp; -->
+                         
+                        </div>
+                    </form>
+
+
+                </mat-tab>
+
+
+            </mat-tab-group>
+
+        </div>
+    </div>
+<!-- </div> -->
+
+
+<router-outlet></router-outlet>

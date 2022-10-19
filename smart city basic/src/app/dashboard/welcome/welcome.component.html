@@ -1,0 +1,33 @@
+<div class="container1 bg-light py-5 mat-typography" 
+    style="box-shadow: 4px 4px 4px 4px rgb(0 0 0 / 20%); border-radius: 20px;margin-top:5%;">
+    <div class="first-page">
+        <h1 class="display-4 fw-bold" style=" color:#a742c6;margin-right: 48px;"><b>Welcome to Online Test</b></h1>
+        <p class="fw-bold" style="font-size: large;">This Test will contains total 260 questions.</p>
+    </div>
+    <div class="rules">
+        <h4 class="fw-bold" style="font-size:20px;color:#a742c6 ;"><b>Rules:</b></h4>
+        <ol style="font-size: large;">
+            <li>Every Questions gives you some points.</li>
+            <li>You will have 45 mins to complete the Test</li>
+            <li>Strongly Agree with the statement as a description of you</li>
+            <li>Agree with the statement as a description of you</li>
+            <li>Disagree with the statement as a description of you</li>
+            <li>Strongly Disagree with the statement as a description of you</li>
+            <li>Neutral with the statement as a description of you;</li>
+            <li>Review Button shows the Answered and Not Answered Question </li>
+        </ol>
+        <h1 class="welcome-page"><b>All the Best!!</b></h1>
+
+        <!-- <button class="btn btn-lg btn-frst" mat-button (click)="openDialog()">Start the Test!!</button> -->
+
+        <div class="container12" [ngClass]="{'overlay': start}">
+            <h2 class="counter" *ngIf="start">{{ counter }}</h2>
+            <button class="btn btn-lg btn-frst" mat-button *ngIf="!start" (click)="startCounter();">Start the
+                Test!!</button>
+        </div>
+
+        <!-- <button class="btn btn-lg btn-frst" mat-button (click)="openDialog()">Start the Test!!</button> -->
+    </div>
+   
+   
+</div>

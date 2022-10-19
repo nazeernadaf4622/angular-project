@@ -1,0 +1,228 @@
+<mat-dialog-content>
+  <h2  *ngIf="dialogRef._containerInstance._config.data.newform===true">Enter the New User details</h2>
+	<form [formGroup]="detailsform" class="normal-form">
+        <mat-grid-list  [cols]="3"  rowHeight="{{desired_rowHeight}}">
+            <mat-grid-tile [rowspan]="4">
+              
+                <div class="form-row" style="margin-left:1%;width:100%;">
+
+                  <mat-form-field style="width:20%;display:none!important;"  >
+                    <input formControlName="id"  matInput placeholder="Virtue ID">
+                </mat-form-field>
+
+                
+                    <mat-form-field>
+                        <input style="color:rgb(121, 8, 17);font-size:20px" formControlName="uUsername"  matInput placeholder="User Name">
+                        
+                        <mat-error>This field is mandatory.</mat-error>
+                    </mat-form-field>
+                    
+                    
+
+                    <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===true" >
+                        <input formControlName="password"  matInput placeholder="Password">
+                          
+                          <mat-error>This field is mandatory.</mat-error>
+                    </mat-form-field>
+
+
+                    <mat-form-field>
+                        <input formControlName="uUserEmail"  matInput placeholder="Email">
+                        
+                    </mat-form-field>
+                 
+                     
+                      <mat-form-field   *ngIf="dialogRef._containerInstance._config.data.is_super_admin==true || dialogRef._containerInstance._config.data.is_admin_staff==true">
+                        <mat-select  matNativeControl [(ngModel)]="selectedCompany" formControlName="organizationID"  placeholder="Organization Name">
+                          
+                          <mat-option *ngFor="let compnaygorup of companygroups" [value]="compnaygorup.uOrgID">
+                            {{compnaygorup.uOrgName}}
+                          </mat-option>
+                        </mat-select>
+                      <!-- <input formControlName="tblcompanyId" matInput
+                          placeholder="Comapny Group"> -->
+                      <mat-error>This field is mandatory.</mat-error>
+                  </mat-form-field >
+
+                  <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true" >
+                    <mat-select matNativeControl [(ngModel)]="selectedReport" multiple formControlName="uReportType"  placeholder="Reports Type">
+                      
+                      <mat-option *ngFor="let i of reportgroups" [value]="i.rID">
+                        {{i.rName}}
+                      </mat-option>
+                    </mat-select>
+                  <!-- <input formControlName="tblcompanyId" matInput
+                      placeholder="Comapny Group"> -->
+                  <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field >
+                    
+              <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true"  >
+                <input  [readonly]="true" formControlName="uCreatedBy"  matInput placeholder="Created By">
+              </mat-form-field>
+
+              <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true">
+                <input [readonly]="true" formControlName="uModifiedBy"  matInput placeholder="Modified By">
+                
+              </mat-form-field>
+        
+           
+                </div>
+
+            </mat-grid-tile>
+
+            <mat-grid-tile [rowspan]="4">
+                <div class="form-row" style="margin-left:1%;width:90%;">
+
+                  <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===true">
+                    <mat-select matNativeControl [(ngModel)]="selectedReport" multiple formControlName="uReportType"  placeholder="Reports Type">
+                      
+                      <mat-option *ngFor="let i of reportgroups" [value]="i.rID">
+                        {{i.rName}}
+                      </mat-option>
+                    </mat-select>
+                  <!-- <input formControlName="tblcompanyId" matInput
+                      placeholder="Comapny Group"> -->
+                  <mat-error>This field is mandatory.</mat-error>
+              </mat-form-field >
+
+              <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===true"  >
+                <input  [readonly]="true" formControlName="uCreatedBy"  matInput placeholder="Created By">
+              </mat-form-field>
+
+                 
+                  <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true">
+                    <input formControlName="uOTP"  matInput placeholder="OTP">
+                    
+                  </mat-form-field>
+                  <mat-form-field style="width:40%">
+                    <mat-label>Are you a part of organization..?</mat-label>
+                    <mat-select matNativeControl [(ngModel)]="selectedoptions_org" formControlName="uOrgType"  placeholder="Yes/No">
+                        
+                      <mat-option *ngFor="let i of optinsgroups" [value]="i.id">
+                        {{i.value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                   
+                    <mat-form-field style="width:40%;margin-left: 20%;" >
+                      <mat-select matNativeControl [(ngModel)]="selectedoptions_payment" formControlName="uPayment"  placeholder="Payment ">
+                        
+                        <mat-option *ngFor="let i of optinsgroups" [value]="i.id">
+                          {{i.value}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true" style="width:40%">
+                      <input formControlName="noOfAttempts" matInput placeholder="No of Attempts taken">
+                    </mat-form-field>
+                    <mat-form-field   *ngIf="dialogRef._containerInstance._config.data.newform===!true"style="width:40%;margin-left: 20%;">
+                      <input formControlName="examAttemptLimit" matInput placeholder="Exam Attemp limit">
+                    </mat-form-field>
+
+                      <mat-form-field>
+                      <mat-select matNativeControl [(ngModel)]="selectedUser" formControlName="uType"  placeholder="User  Type">
+                        
+                        <mat-option *ngFor="let i of usergroups" [value]="i.tID">
+                          {{i.tName}}
+                        </mat-option>
+                      </mat-select>
+                    <!-- <input formControlName="tblcompanyId" matInput
+                        placeholder="Comapny Group"> -->
+                    <mat-error>This field is mandatory.</mat-error>
+                </mat-form-field >
+                      
+
+                    <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true">
+                      <input [readonly]="true" type ="datetime" formControlName="uCreatedOn"  matInput placeholder="Created On">
+                    </mat-form-field>
+
+                    <mat-form-field  *ngIf="dialogRef._containerInstance._config.data.newform===!true">
+                      <input  [readonly]="true" type ="datetime" formControlName="uModifiedOn"  matInput placeholder="Modified On">
+                    </mat-form-field>
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile [rowspan]="4">
+
+              <div class="form-row" style="margin-left:1%;width:90%;">
+                <div  *ngIf="dialogRef._containerInstance._config.data.a1==true" class="col-md-12 mt-4" style="display:flex" >
+                  <p>Super Admin</p>
+                  <span>
+                    <div id="settings" class="container" >
+                        <mat-slide-toggle  [disabled]="s_a_disabled" (change)="onChange_s_a($event)" style="margin-left:50%" formControlName="is_super_admin"></mat-slide-toggle>
+                    </div>
+                  </span>
+                </div>
+                    
+                <div *ngIf="dialogRef._containerInstance._config.data.a2===true" class="col-md-12 mt-4" style="display:flex" >
+                  <p>Admin Staff</p>
+                  <span>
+                    <div id="settings" class="container" >
+                        <mat-slide-toggle  [disabled]="a_s_disabled" (change)="onChange_a_s($event)" style="margin-left:50%" formControlName="is_admin_staff"></mat-slide-toggle>
+                    </div>
+                  </span>
+                </div>
+
+                <div *ngIf="dialogRef._containerInstance._config.data.a3===true" class="col-md-12 mt-4" style="display:flex" >
+                  <p>Client Admin</p>
+                  <span>
+                    <div id="settings" class="container">
+                        <mat-slide-toggle [disabled]="c_a_disabled"  (change)="onChange_c_a($event)" style="margin-left:50%" formControlName="is_client_admin"></mat-slide-toggle>
+                    </div>
+                    </span>
+                </div>
+
+                <div *ngIf="dialogRef._containerInstance._config.data.a4===true" class="col-md-12 mt-4" style="display:flex" >
+                  <p>Client Staff</p>
+                  <span>
+
+                  <div id="settings" class="container">
+                      <mat-slide-toggle [disabled]="c_s_disabled"  (change)="onChange_c_s($event)" style="margin-left:50%" formControlName="is_client_staff"></mat-slide-toggle>
+                  </div>
+                  </span>
+                 </div>
+
+                 <div  *ngIf="dialogRef._containerInstance._config.data.a5===true" class="col-md-12 mt-4" style="display:flex" >
+                  <p>Registerd user</p><span>
+
+                  <div id="settings" class="container" >
+                      <mat-slide-toggle  [disabled]="r_s_disabled" (change)="onChange_r_s($event)" style="margin-left:50%" formControlName="is_registered_user"></mat-slide-toggle>
+          
+                  </div>
+                  </span>
+
+              </div>
+              <div class="col-md-12 mt-4"  style="display:flex" >
+                <p>Active </p>
+                <span>
+                  <div id="settings" class="container">
+                      <mat-slide-toggle style="margin-left:80%" formControlName="is_active"></mat-slide-toggle>
+                  </div>
+                </span>
+
+              </div>
+                  
+         
+              </div>
+
+          </mat-grid-tile>
+      
+          </mat-grid-list>
+          
+
+
+
+
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <div style="float:right;margin-right:4%;margin-bottom:5%;">
+        <button *ngIf="dialogRef._containerInstance._config.data.newform===true" style="color:white; background-color: rgba(98, 95, 95, 0.95); " type="button" class="btn " (click)="saveItem()">Save</button>&nbsp;
+        <button *ngIf="dialogRef._containerInstance._config.data.newform===false" style="color:white; background-color: rgba(98, 95, 95, 0.95); " type="button" class="btn " (click)="updateItem(this.detailsform.value.id)">Update</button>&nbsp;
+        <button style="color:white;background-color: rgba(98, 95, 95, 0.95);" type="button" class="btn " (click)="reset()">Reset</button>&nbsp;
+       <!-- <button style="color:white;background-color: rgba(98, 95, 95, 0.95);" type="button" class="btn " (click)="deleteItem(this.detailsform.value.vVirtueId)">Delete</button>&nbsp; -->
+    </div>
+	<!-- <button mat-raised-button color="primary" (click)="onConfirmClick()" tabindex="1">{{confirmButtonText}}</button>
+	<button mat-raised-button mat-dialog-close tabindex="-1">{{cancelButtonText}}</button> -->
+</mat-dialog-actions>

@@ -1,0 +1,55 @@
+<div  class="container-fluid page">
+    <div style="width:100%;" class="d-flex page__box p-3 mt-2">Manage Accounts</div>
+  
+    <div class="page__content shadow p-3 position-relative">
+    <mat-tab-group  (selectedTabChange)="myTabSelectedIndexChange($event)" animationDuration="1ms"  [(selectedIndex)]="selectedIndex" >
+      <mat-tab *ngFor="let tab of tabs; let index = index" [label]="tab">
+        <br>
+        <div class="page__content shadow p-3 position-relative">
+          <div >
+            <mat-card class="example-card">
+              <mat-card-header>
+                <button mat-raised-button (click) ="openDialog()" style="border: 1px solid #500d8c;;"><mat-icon style="color:#500d8c;">person_add</mat-icon></button>
+                  <div class="example-full-width">
+                      <input matInput (keyup)="applyFilter($event)" placeholder="Filter" style="margin-left:20px;width:30%;border:1px solid #500d8c;;height: 100%;">
+                  </div>
+                  
+              </mat-card-header>
+              <br>
+      
+              <mat-card-content class="grid">
+                
+              <mat-card (dblclick)="get_account_details(data.id)" class="example-card" *ngFor="let data of dataSource.filteredData" style="padding:0;margin:10px;border-radius:5px;">
+                <mat-card-header class="mat_card-header"  >
+                    <mat-card-title style="color:white">{{data.uUsername}}</mat-card-title>
+                 </mat-card-header>
+                 <mat-card-subtitle style="margin-left:10px;display:flex">
+                    <mat-icon style="margin-right:10px" class="muted-text">mail_outline</mat-icon>
+                    <span>{{data.uUserEmail}}</span>
+                </mat-card-subtitle>
+                <mat-card-content>
+                    <div style="float:right;bottom:0;margin-right:10px">
+                        <mat-slide-toggle (change)="onChange($event,data.id)" [checked]="data.is_active" >Active</mat-slide-toggle>
+                    </div>
+                   
+                </mat-card-content>
+             
+              </mat-card>
+
+            </mat-card-content>
+            </mat-card>
+             
+  
+            
+            </div>
+        </div>  
+  </mat-tab>
+  
+  
+  
+  </mat-tab-group>
+  </div>
+         
+  </div>
+  
+  

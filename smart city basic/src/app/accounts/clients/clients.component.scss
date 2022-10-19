@@ -1,0 +1,227 @@
+@import '../../css/style-color.scss';
+
+.controles-container-right {
+    width: 100%;
+    padding: 20% 5% 2% 5%;    
+}
+.controles-container-left {
+    width: 100%;
+    padding: 1% 5% 5% 5%;    
+}
+
+.container {
+     text-align: left;
+     margin-top:1rem;
+     width: 600px;
+     
+}
+
+.input-name {
+  color:$grad-color3;
+  font-size: larger;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+.button-row button {
+    margin-left: 1%;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    background-color: rgba(0,0,0,.87);;
+    
+   }
+   
+   .box-row button{
+       margin-left: 655px;
+       border-radius: 10px;
+       text-align: center;
+       width: 150px;
+       background-color: rgba(0,0,0,.87);;
+       bottom: 100px;
+       
+   }
+
+   .button1-row button{
+       
+    margin-left: 40px;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    background-color: rgba(0,0,0,.87);;
+    bottom: -330px;
+    margin-right: 30px;
+   }
+
+//    ---------------------------
+.demo-table {
+    width: 100%;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    }
+    
+    :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: $grad-color3 ;
+    }
+    
+    :host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #265c72 ;
+    }
+    
+    #settings{
+        margin:0% 82% 0% 00%
+
+    }
+
+    // align-items: center;justify-content: left;
+
+
+  .superman{
+    padding: 0% 0% 0% 90%;
+    height: 1px;
+    margin-bottom: -11px;
+}
+
+table {
+    width: 100%;
+  }
+  
+
+  .box{
+    width: 100%;
+    border: 1px solid rgb(145, 138,138);
+    border-radius: 25px;
+    padding: 0px 20px 20px 20px;
+
+  
+}
+#settings {
+    display: grid;
+    grid-gap: 0.5rem;
+    grid-template-columns: repeat(2, max-content 1fr);
+    justify-content: end;
+    align-items: center;
+}
+
+.container {
+    padding: 0rem;
+    background: #EEE;
+    border: 1x solid #CCC;
+    border-radius: 0.5rem;
+}
+
+ 
+  .box {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 10px;
+  }
+  
+  #user-form {
+    padding: 1rem 0;
+}
+ 
+
+
+#buttons {
+  display: flex;
+  padding: 1.5rem 0;
+  justify-content: flex-end;
+
+  > button {
+      font-size: 1.5rem;
+      padding: 0.75rem;
+      margin-right: 1rem; 
+
+      &:last-of-type {
+          margin-right: 0;
+      }
+  }
+}
+
+#setting-results {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  justify-content: space-between;
+  grid-gap: 1rem;
+}
+
+.mat-row {
+  cursor:pointer !important
+}
+ 
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+:host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: $grad-color4 ;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: $grad-color3 ;
+}
+
+
+
+.mat-grid-tile-content{
+  align-items: left !important;
+  justify-content: left;
+}
+.mat-form-field{
+  width:100%;
+}
+
+.mat-form-field--inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.mat-form-field--inline .mat-form-field {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.mat-form-field--inline .mat-form-field:nth-child(1) {
+  margin-right: 10px;
+}
+
+.client-button {
+  color:white !important;
+  background-color: $grad-color3 !important;
+  width: 94px;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: $grad-color3 !important;
+}
+
+@import '../../dashboard/dashboard.component.scss'
+
+
+

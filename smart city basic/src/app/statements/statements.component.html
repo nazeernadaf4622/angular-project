@@ -1,0 +1,258 @@
+<div  class="container-fluid page">
+    <div style="width:100%;" class="d-flex page__box p-3 mt-2">Dimensions</div>
+  
+    <div class="page__content shadow p-3 position-relative">
+    <mat-tab-group animationDuration="1ms"  [(selectedIndex)]="selectedIndex"  (selectedTabChange)="myTabSelectedIndexChange($event)">
+      <mat-tab label="Basic">
+        <br><br>
+  
+    <div  style="display:flex;" class="page__content shadow p-3 position-relative">
+        <div style="width:100%;" fxLayout="column">
+
+        <div style="width:100%;padding-left:4%">
+            <h1 style="padding-left:1%;margin-top:1rem;color:rgb(46, 86, 119)">Create new Statements here.</h1>
+            <form [formGroup]="userForm">
+                <div style="border:none;padding-left:1rem; border-radius:20px;box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.2); " class="mt-5 box">
+                  <div class="form-row">
+                    <div class="col-md-12">
+                        <div class="form-group mt-5 ">
+                            <label>Statement</label>
+                        </div>
+                        <div class="form-row" style="margin-top: 10px;width:100%;">
+                            <div class="col" >
+                            <textarea type="text" style="height:50px"  formControlName="sDescription" class="form-control" placeholder="Enter new Statement"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display:flex;padding-left:1rem;margin-top:2%">
+                        <div class="col-md-2.5">
+                            <div class="form-group mt-3 ">
+                                <label>Strongly Agree </label>
+                            </div>
+                            <div class="form-row" style="margin-top: 5px;width:35%">
+                                <div class="col" >
+                                <input type="number" formControlName="dStronglyAgree" class="form-control" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2.5">
+                            <div class="form-group mt-3 ">
+                                <label>Agree </label>
+                            </div>
+                            <div class="form-row" style="margin-top: 5px;width:35%">
+                                <div class="col" >
+                                <input type="number" formControlName="dAgree" class="form-control" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-2.5">
+                            <div class="form-group mt-3 ">
+                                <label>Disagree </label>
+                            </div>
+                            <div class="form-row" style="margin-top: 5px;width:35%">
+                                <div class="col" >
+                                <input type="number" formControlName="dDisagree" class="form-control" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2.5">
+                            <div class="form-group mt-3 ">
+                                <label>Strongly Disagree </label>
+                            </div>
+                            <div class="form-row" style="margin-top: 5px;width:35%">
+                                <div class="col" >
+                                <input type="number" formControlName="dStronglyDisagree" class="form-control" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group mt-3 ">
+                                <label>Neutral </label>
+                            </div>
+                            <div class="form-row" style="margin-top: 5px;width:30%">
+                                <div class="col" >
+                                <input type="number" formControlName="dNeutral" class="form-control" placeholder="0">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="col-md-8" style="margin-top:2%">
+                      <div class="form-group mt-3 ">
+                    <mat-form-field >
+                      <mat-label>Select the Virtue applicable for the Statement</mat-label>
+                      <mat-select  formControlName="sVirtueID" >
+                        <mat-option *ngFor="let topping of VirtueDataList" [value]="topping.vVirtueID">{{topping.vVirtueName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    </div>
+                    </div>
+                    
+                    <div class="col-md-8">
+                      <div class="form-group mt-3 ">
+                    <mat-form-field >
+                      <mat-label>Select the User Types applicable for the Statement</mat-label>
+                      <mat-select  formControlName="sType" multiple>
+
+                        <mat-option *ngFor="let topping of UserDataList" [value]="topping.tID">{{topping.tName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    </div>
+                    </div>
+
+
+                    <div class="col-md-8">
+                      <div class="form-group mt-3 ">
+                    <mat-form-field >
+                      <mat-label>Select the Report Types applicable for the Statement</mat-label>
+                      <mat-select  formControlName="sReport" multiple>
+                        <mat-option *ngFor="let topping of ReportDataList" [value]="topping.rID">{{topping.rName}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    </div>
+                    </div>
+
+                    
+
+                    <br>
+                    <div class="col-md-12" >
+                        <div class="form-group mt-1 " >
+                          <div >
+                            <label >Status</label>
+                          </div>
+                        <div id="settings" >
+                        <mat-slide-toggle [(ngModel)]="vInactiveChecked" (change)="onChange($event)" formControlName="sInactive">{{activeStatus}}</mat-slide-toggle>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                    <div style="align-items: center;justify-content: center;width:100%" class="form-row mt-5">
+                    <div class="col-md-4" style="display:flex">
+                        <button style="color:white; background-color: rgba(98, 95, 95, 0.95);   margin-left:10%;margin-right: 10%;border-radius: 15px;padding-left:20px;padding-right:20px;" type="button" class="btn " (click)="addItem()">Add</button>&nbsp;
+                        <button style="color:white;background-color: rgba(98, 95, 95, 0.95);   margin-left:10%;margin-right: 10%;border-radius: 15px;padding-left:20px;padding-right:20px;" type="button" class="btn " (click)="reset()">Reset</button>&nbsp;
+                    </div>
+                    </div>
+
+                  </div>
+                </div>
+            </form>
+            <div style="margin-top:5%">
+              <h2>Search Statements</h2>
+            </div>
+            
+                    <div style="width:100%;height:800px;overflow-x: scroll">
+                      
+                      <mat-table style="width:100%;;background-color: rgb(255, 255, 255);" #table [dataSource]="datasource" class="mat-elevation-z8">
+    
+                        <ng-container style="display:none!important;" matColumnDef="sStatementID">
+                        <mat-header-cell style="display:none !important;"  *matHeaderCellDef> STATEMENTS CODE </mat-header-cell>
+                            <mat-cell style="display:none!important;"  *matCellDef="let element">
+                        {{ element.sStatementID }}
+                        </mat-cell>
+                            </ng-container>
+                        <ng-container matColumnDef="sDescription" >
+                            <mat-header-cell *matHeaderCellDef style="width:30%;padding-left:1rem;font-weight:bold;font-size:14px;align-items: center;justify-content: center;background-color: rgb(235, 236, 236);" > DIMENSION NAME </mat-header-cell>
+                            <mat-cell style="margin:0;padding-left:3rem;align-items: left;justify-content: left;" *matCellDef="let element"  > 
+                              <div style= "color:rgb(1, 10, 17)!important" *ngIf="element.sInactive ==='TRUE' ;else conditionNotMet" > {{element.sDescription}}
+                              </div>
+                              <ng-template #conditionNotMet>
+                                <div style= "font-weight:bold;color:rgb(207, 11, 11)" >{{element.sDescription}}
+                                </div>
+                                
+                              </ng-template>
+                            </mat-cell></ng-container>
+                
+                        <ng-container matColumnDef="sInactive">
+                            <mat-header-cell style="width:12rem;font-weight:bold;margin:0;padding:0;font-size:14px;align-items: center;justify-content: center;background-color: rgb(235, 236, 236);" *matHeaderCellDef> ACTIVE</mat-header-cell>
+                            <mat-cell style="align-items: center;justify-content: center;" *matCellDef="let element"  > 
+                                <div style= "color:rgb(23, 46, 65)" *ngIf="element.sInactive === 'TRUE' ;else conditionNotMet" > {{element.sInactive}}
+                                </div>
+                                <ng-template #conditionNotMet>
+                                  <div style= "font-weight:bold;color:rgb(207, 11, 11)" >{{element.sInactive}}
+                                  </div>
+                                  
+                                </ng-template>
+                              </mat-cell>
+                             
+                          </ng-container>
+                
+  
+  
+                        <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns" (click)="getDimensionDetails(row)"></mat-row>
+                </mat-table>
+                  
+                </div>  
+        </div>
+        </div>
+
+        <div style="margin-top:2%;width:20%;cursor: hand;" class="flex-p">
+                <div style="display:flex;margin-bottom:4%">
+                  <div style="margin-left:20%;">
+                  <div class="client-count-wrp mt-100" >
+                    <p>Active</p>
+                    <div class="container" style="background-color:rgb(90, 95, 97);border-radius:100%;height:100%;width:45px;height:40px">
+                      <div class="client-count-wrp-inner" >
+                        <div class="cards">
+                        
+                          <h2 style="color:white;padding-top:6px;padding-left: 8px;">{{active_counter}}</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-left:5%;">
+                  <div class="client-count-wrp mt-100" >
+                    <p>Inactive</p>
+                    <div class="container" style="background-color:rgb(177, 171, 168);border-radius:100%;height:100%;width:45px;height:40px">
+                      <div class="client-count-wrp-inner" >
+                        <div class="cards">
+                        
+                          <h2 style="color:white;padding-top:6px;padding-left: 14px;;">{{inactive_counter}}</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div style="margin-left:5%;">
+                  <div class="client-count-wrp mt-100" >
+                    <p>Total</p>
+                    <div class="container" style="background-color:rgb(129, 13, 13);border-radius:100%;height:100%;width:45px;height:40px">
+                      <div class="client-count-wrp-inner" >
+                        <div class="cards">
+                        
+                          <h2 style="color:white;padding-top:6px;padding-left: 8px;;">{{total_counter}}</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                  
+        </div>
+    </div> 
+    
+    
+  </mat-tab>
+
+
+
+  <mat-tab label="Advanced">
+    <h1>c</h1>
+    <!--  -->
+</mat-tab>
+
+
+  
+
+  
+  </mat-tab-group>
+         
+  </div>
+  
+  

@@ -1,0 +1,7 @@
+<h2 mat-dialog-title></h2>
+<mat-dialog-content class="mat-typography">
+    <div class="container" [ngClass]="{'overlay': start}">
+        <h2 class="counter" *ngIf="start">{{ counter }}</h2>
+        <a *ngIf="!start" (click)="startCounter();">Click To Start</a>
+      </div>
+</mat-dialog-content>

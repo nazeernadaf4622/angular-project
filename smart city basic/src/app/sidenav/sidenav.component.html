@@ -1,0 +1,68 @@
+<mat-drawer-container class=" mat-typography" autosize>
+  <mat-drawer #drawer mode="side" disableClose="true" opened="true" [opened]="sideBarOpen">
+    <button mat-mini-fab (click)="isExpanded = !isExpanded" color="white" style="margin: 12px;">
+      <mat-icon aria-label="Menu" style=" color: #a742c6 !important;">menu</mat-icon>
+      <!-- <img style="width: 100px; height: 60px;" src="../../assets/logo/download.jpg" alt="Company Logo" /> -->
+    </button>
+
+    <mat-nav-list>
+      <!-- <mat-list>
+        <mat-list-item *ngFor="let item of result; let i = index">
+          <a *ngIf="item.submenu.length" (click)="ddToggle(i)" mat-list-item>
+            <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+            <h4 mat-line *ngIf="isExpanded">{{item.linkText}}</h4>
+          </a>
+
+          <a *ngIf="!item.submenu.length" (click)="ddToggle(i)" mat-list-item routerLink={{item.parentLink}}>
+            <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+            <h4 mat-line *ngIf="isExpanded">{{item.linkText}}</h4>
+          </a>
+          <div class="sub-menu" [ngClass]="{'show-menu':item.menu}">
+            <ul *ngFor="let menu of result[i].submenu">
+              <li>
+
+                <mat-list-item><a mat-list-item routerLink="{{menu.link}}">
+                    <h4 mat-line *ngIf="isExpanded">{{menu.childtext}}</h4>
+                  </a></mat-list-item>
+
+              </li>
+            </ul>
+          </div>
+
+        </mat-list-item>
+      </mat-list> -->
+      <div *ngFor="let item of result; let i = index">
+        <div *ngIf="!item.submenu.length">
+          <a (click)="ddToggle(i)" mat-list-item routerLink={{item.parentLink}} style="box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);">
+            <mat-icon  mat-list-icon style="color:white;">{{item.icon}}</mat-icon> <h4 mat-line *ngIf="isExpanded" style="color:white;">{{item.linkText}}</h4>
+          </a>
+        </div>
+  
+        <div *ngIf="item.submenu.length">
+          <mat-accordion>
+            <mat-expansion-panel style="margin-left:-12px;color: aliceblue; ">
+              <mat-expansion-panel-header>
+                <mat-panel-title >
+                  <a (click)="ddToggle(i)" mat-list-item >
+                    <mat-icon mat-list-icon style="color: aliceblue; "> {{item.icon}}</mat-icon> <h4 mat-line *ngIf="isExpanded" style="color:white;">{{item.linkText}}</h4>
+                  </a>
+                </mat-panel-title>
+              </mat-expansion-panel-header >
+              <div class="sub-menu" [ngClass]="{ 'show-menu': item.menu }">
+                <div *ngFor="let menu of result[i].submenu">
+                  <a mat-list-item routerLink="{{menu.link}}" style="color: aliceblue; ">
+                    <mat-icon mat-list-icon style="color: aliceblue; "> {{menu.sicon}}</mat-icon> <h4 mat-line *ngIf="isExpanded" style="color: aliceblue; "> {{ menu.childtext }}</h4>
+                  </a>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </mat-nav-list>
+    
+  </mat-drawer>
+  <app-header (toggleSidebarForMe)="sideBarToggler($event)"></app-header>
+  <router-outlet></router-outlet>
+
+</mat-drawer-container>

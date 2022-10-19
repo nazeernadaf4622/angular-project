@@ -1,0 +1,69 @@
+{
+    "navitems": [
+      {
+        "linkText": "Home",
+        "parentLink": "/sidenav/dashboard/home",
+        "menu": false,
+        "submenu": [],
+        "icon":"home"
+      },
+      {
+        "linkText": "ITMS",
+        "parentLink": "/sidenav/dashboard/itms",
+        "menu": false,
+        "submenu": [],
+        "icon":"itms"
+      },
+      
+      {
+        "linkText": "citizen grievance",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "smart parking",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "ATCS",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "Fire",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "Incident",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "sensor devices",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "dashboard",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      }
+    ]
+  }
+  

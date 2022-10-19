@@ -1,0 +1,73 @@
+<div  class="container-fluid page">
+    <div style="width:100%;" class="d-flex page__box p-3 mt-2">Reports</div>
+  
+    <div class="page__content shadow p-3 position-relative ">
+        <div  style="float:center;margin:1%;margin-top:3%">
+          <div style="  display: flex;">
+
+
+         
+            <mat-form-field style="width:20%;margin-right:8%">
+              <mat-select   matNativeControl [(ngModel)]="selectedReport" placeholder="Select Your Report">
+                
+                <mat-option style="background-color: rgba(238, 238, 238, 0.5);color: teal" *ngFor="let i of reportgroups" [value]="i.rID">
+                  {{i.rName}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field >
+
+            <table style="width:70%;" mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+            
+              <!-- Position Column -->
+              <ng-container matColumnDef="examid" style="display:hidden">
+                <th mat-header-cell *matHeaderCellDef> Exam ID</th>
+                <td  style="width:190px"  mat-cell *matCellDef="let element"> {{element.eExamID}} </td>
+              </ng-container>
+           
+              <!-- Name Column -->
+              <ng-container matColumnDef="label">
+                <th mat-header-cell *matHeaderCellDef> Exam Date </th>
+                <td style="width:200px"  mat-cell *matCellDef="let element"> {{element.eExamCreatedOn}} </td>
+              </ng-container>
+      
+              <ng-container matColumnDef="function">
+                  <th mat-header-cell *matHeaderCellDef> Percentage Completed </th>
+                  <td style="width:200px"  mat-cell *matCellDef="let element"> {{element.ePercentCompleted}} </td>
+                </ng-container>
+                
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> 
+                  <div>
+                      <button type="button" class="btn btn-success btn-sm"
+                              (click)="Download($event, element.eExamID, element.ePercentCompleted)">Download
+                      </button>
+                  </div>
+              </td>
+              </ng-container>
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Action </th>
+                <td mat-cell *matCellDef="let element"> 
+                  <div>
+                      <button type="button" class="btn btn-danger btn-sm"
+                              (click)="Delete(element.eExamID)">Delete
+                      </button>
+                  </div>
+              </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+       
+
+   
+          </div>
+        <div>
+      
+    </div>
+</div>
+

@@ -1,0 +1,42 @@
+.btn-frst {
+    background: -moz-linear-gradient(top,  #500d8c 0%, #b251c2 100%)  !important;
+    background: -webkit-linear-gradient(top,  #500d8c 0%, #b251c2 100%)  !important;
+    background: linear-gradient(to bottom,  #500d8c 0%, #b251c2 100%)  !important;
+    border-radius: 15px;
+    margin: 2% 1% 1% 18%;
+    color: white;
+    height: 50px;
+}
+
+.welcome-page {
+    color: #a742c6 !important;
+    margin: 5% 11% 1% 18%;
+}
+.first-page {
+    text-align: center;
+}
+.rules {
+    margin: 4% 7% 2% 30%;
+}
+
+.container1{
+    min-height: 50vh;
+    justify-content: center;
+    align-content: center;
+}
+
+.overlay{
+    text-align: center;
+}
+
+.counter{
+    color:#fff;
+    border-radius: 15px;
+    border: 2px solid rgb(46, 86, 119);
+    padding: 1rem 1.2rem 1rem 1.2rem;
+    width: 12rem;
+    text-align: center;
+    margin: 0% 0% 0% 15%;
+    background-color: rgb(46, 86, 119);
+}
+

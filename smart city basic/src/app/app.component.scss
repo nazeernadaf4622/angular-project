@@ -1,0 +1,34 @@
+.main-div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+    
+}
+.ul-div{
+    display: flex;
+    list-style: none;
+}
+.ul-div li{
+    padding: 5px;
+}
+
+
+:host {
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  mat-drawer {
+    width: 260px;
+  }
+  mat-drawer-container {
+    height: 100%;
+  }
+  
+  mat-drawer {
+    background: #0f172a;
+  }
+  *  {
+    font-family:  Helvetica, sans-serif !important; 
+  }

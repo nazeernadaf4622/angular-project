@@ -1,0 +1,36 @@
+
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.material-icons{
+    font-family: 'Material Icons' !important;
+//     font-size: 17px  !important;
+//     margin-bottom: 10px;
+}
+
+.mat-step-icon {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    flex-shrink: 0;
+    position: relative;
+    display: none !important;
+}
+.mat-drawer-inner-container {
+    overflow: hidden !important;
+  }
+.mat-stepper-horizontal-line {
+    border: 0px solid grey;
+    margin: 21px !important;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::before, .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::after {
+    border-block-color: white !important;
+
+}
+
+.mat-expansion-panel-header-description, .mat-expansion-indicator::after {
+    color: #fff !important;
+}

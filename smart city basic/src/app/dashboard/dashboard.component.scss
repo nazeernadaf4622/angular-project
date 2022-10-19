@@ -1,0 +1,28 @@
+
+.page {
+    color: #500d8c;
+    padding: 0 1rem;
+    background:  #efefef !important;
+    &__box {
+      min-height: 75px;
+      // background: -moz-linear-gradient(left, #4d8cb1 0%,#ebebeb 100%)  !important;
+      // background: -webkit-linear-gradient(left, #4d8cb1 0%,#ebebeb  100%)  !important;
+      // background: linear-gradient(to right, #4d8cb1 0%,#ebebeb  100%)  !important;
+      margin: 0 0rem;
+      font-size: 23px;
+      
+    }
+    &__content {
+      min-height: calc(100vh - 178px);
+      background:  #fff !important;
+      color: black;
+      font-size: 1rem;
+      margin-top: -18px!important;
+      &-data {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+  

@@ -1,0 +1,13 @@
+{
+    "navitems": [
+      {
+        "linkText": "Administration",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      }
+      
+    ]
+  }
+  

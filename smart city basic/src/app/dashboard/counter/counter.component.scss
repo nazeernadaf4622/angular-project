@@ -1,0 +1,25 @@
+.container{
+    min-height: 18vh;
+    // display: grid;
+    width: 60px;
+    justify-content: center;
+    align-content: center;
+}
+
+.overlay{
+    background-color: #2e5677;
+}
+
+.counter{
+    color: #fff;
+    border-radius: 10rem;
+    border: thick groove silver;
+    padding: 1rem;
+    width: 2.5rem;
+    text-align: center;
+    margin: 10% 10% 10% 10%;
+}
+
+a{
+    cursor: pointer;
+}

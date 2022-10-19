@@ -1,0 +1,129 @@
+{
+    "navitems": [
+      {
+        "linkText": "Administration",
+        "parentLink": "/sidenav/dashboard/admindash",
+        "menu": false,
+        "submenu": [],
+        "icon":"dashboard"
+      },
+      {
+        "linkText": "Accounts",
+        "parentLink": "/angularjs-spa",
+        "menu": false,
+        "submenu": [
+          {
+            "childtext": "Admins",
+            "link": "https://stackblitz.com/edit/angular-8-nested-routing",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Users",
+            "link": "https://stackblitz.com/edit/module-to-module-routing",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Extra",
+            "link": "https://stackblitz.com/edit/line-chart-component-json",
+            "sicon":"account_circle"
+          }
+        ],
+        "icon":"person"
+      },
+      {
+        "linkText": "Limens",
+        "parentLink": "/angularjs-spa",
+        "menu": false,
+        "submenu": [
+          {
+            "childtext": "Virtues",
+            "link": "/sidenav/virtues/virtue",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Dimensions",
+            "link":  "/sidenav/dimensions/dimensions",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Statements",
+            "link": "/sidenav/statements/statements",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Zones",
+            "link": "",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Domains",
+            "link": "",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Sets",
+            "link": "",
+            "sicon":"account_circle"
+          }
+        ],
+        "icon":"assignment"
+      },
+      {
+        "linkText": "Settings",
+        "parentLink": "",
+        "menu": false,
+        "submenu": [
+          
+        ],
+        "icon":"settings"
+      },
+      {
+        "linkText": "Reports",
+        "parentLink": "",
+        "menu": false,
+        "submenu": [
+          {
+            "childtext": "Career Report",
+            "link": "https://codepen.io/UX_Dev/pen/VMwxmQ",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Scout Report",
+            "link": "https://codepen.io/UX_Dev/live/ZXYLyV",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Human potential Report",
+            "link": "https://codepen.io/UX_Dev/pen/JjogojN",
+            "sicon":"account_circle"
+          }
+        ],
+        "icon":"summarize"
+      },
+      {
+        "linkText": "Employees",
+        "parentLink": "",
+        "menu": false,
+        "submenu": [
+          {
+            "childtext": "Employee List",
+            "link": "https://stackblitz.com/edit/angular-8-nested-routing",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Roles",
+            "link": "https://stackblitz.com/edit/module-to-module-routing",
+            "sicon":"account_circle"
+          },
+          {
+            "childtext": "Extra",
+            "link": "https://stackblitz.com/edit/line-chart-component-json",
+            "sicon":"account_circle"
+          }
+        ],
+        "icon":"badge"
+      }
+    
+    ]
+  }
+  
