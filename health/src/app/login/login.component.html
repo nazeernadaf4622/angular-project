@@ -1,0 +1,84 @@
+<div class="container-fluid" align="center" style="margin-top: 200px;">
+    <div class="container">
+
+        <div class="card">
+            <div class="card-body">
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm">
+                    <div class="col-12" style="margin-top: 20px;">
+                        <label>Name</label>
+                        <input type="text" name="firstName" class="form-control" [(ngModel)]="model.firstName"
+                            #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }"
+                            required>
+                        <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                            <div *ngIf="firstName.errors?.['required']">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-12" style="margin-top: 20px;">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" [(ngModel)]="model.password"
+                            #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required
+                            minlength="6">
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors?.['required']">Password is required</div>
+                            <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 form-group">
+                        <button type="submit" class="btn btn-primary"><span>Login</span></button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <button><a href="javascript:void(0)" (click)="fnOpen()">Login for dashboard</a></button> -->
+
+
+<!-- <div class="row">
+    <div class="col-lg-10 mx-auto bg-white rounded">
+        <div class="card py-6">
+            <div class="card-body">
+                <div class="row text-center login-aduit">
+                    <div class="col-lg-12">
+                        <h2 class="themeColorText">User Login</h2>
+                    </div>
+                    <div class="col-lg-12">
+                        <form #userLogin="ngForm" (ngSubmit)="userLogin.form.valid && userLoginSubmit(userLogin)"
+                            novalidate autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-12 form-group">
+                                    <input type="text" class="form-control" placeholder="Username"
+                                        [(ngModel)]="tpUser.UserName" name="userName" #userName="ngModel"
+                                        [ngClass]="{ 'is-invalid': userLogin.submitted && userName.invalid }"
+                                        required>
+                                    <div *ngIf="userLogin.submitted && userName.invalid" class="invalid-feedback">
+                                        <span *ngIf="userName.errors.required">Username is required</span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <input type="password" class="form-control" placeholder="Password"
+                                        [(ngModel)]="tpUser.password" name="password" #password="ngModel"
+                                        [ngClass]="{ 'is-invalid': userLogin.submitted && password.invalid }"
+                                        required>
+                                    <div *ngIf="userLogin.submitted && password.invalid" class="invalid-feedback">
+                                        <div *ngIf="password.errors.required">Password is required</div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 text-right">
+                                    <a href="javascript:void(0)" data-dismiss="modal" data-toggle="modal"
+                                        data-target="#forgotpass" class="themeColorText">Forgot Password?</a>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <button type="submit"
+                                        class="btn grdnt_btn text-white text-white w-100"><span>Login</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->

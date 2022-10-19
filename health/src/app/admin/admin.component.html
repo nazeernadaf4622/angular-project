@@ -1,0 +1,64 @@
+<div class="constainer-1 mt-0" *ngIf="showTable" >
+    <div class="container-fluid ">
+        <div class="row p-0 m-0 mt-0 ml-5 pl-2">
+            <div class="col-md-12 p-0 m-0 page-heading">
+                <h4 class="header-2 mt-4 mx-3 mb-0">Hello ! Welcome to Appraisal Process</h4>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row gy-5 mt-5">
+            <div class="body-1 col-lg-6 col-md-6 col-sm-12 my-2" (click)="fnGetEmpInfo()" >
+                <div class="card-1 d-flex flex-row justify-content-center align-items-center">
+                    <div class="card-2 card-body" (click)="getThetable()">
+                        <div class="row col-lg-12">
+                            <div class="card-3 col-lg-4">
+                                <i class="card-3_1 fa fa-user-circle-o"></i>
+                            </div>
+                            <div class="card-4 col-lg-8">
+                                <h6 class="card-5 mb-0 display-4 fontb">
+                                    Employee</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr color="#10E66c">
+        <div class="container-fluid ">
+            <div class="row p-0 m-0 mt-0 ml-5 pl-2">
+                <div class="card-6 col-md-12 p-0 m-0 page-heading">
+                    <h4 class="mt-4 mx-3 mb-0">Introduction</h4>
+                    <h4 class="mt-4 mx-3 mb-0">Introduction Notes...</h4>
+                    <br><br><br><br><br>
+                </div>
+            </div>
+            <hr color="#10E66c">
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="container" *ngIf="hideTable">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>userId</th>
+                <th>id</th>
+                <th>title</th>
+                <th>body</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let e of employee">
+                <th>{{e.userId}}</th>
+                <a href="" [routerLink]="['/onboardingdetails']"><td>{{e.id}}</td></a>
+                <td>{{e.title}}</td>
+                <td>{{e.body}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,58 @@
+.fontb {
+    font-weight: 600;
+}
+
+.fs12 {
+    font-size: 12px;
+}
+
+.fs16 {
+    font-size: 16px !important;
+}
+
+.fs13 {
+    font-size: 13px;
+}
+.constainer-1{
+   background-color: #b9e7cc;
+}
+.header-1{
+    color: #199674;
+}
+.header-2{
+    color: #093025;
+}
+.body-1{
+    margin-left: 70px
+}
+.card-1{
+    border-radius: 25px;
+    background-color: #4fdd8a;
+    height: 200px;
+    width: 600px;
+}
+.card-2{
+    text-align:center;
+}
+.card-3{
+    display: flex;
+     justify-content: center;
+      align-items: center;
+}
+.card-3_1{
+   font-size: 120px;
+}
+.card-4{
+    display: flex; 
+    justify-content: center;
+     align-items: center;
+}
+.card-5{
+    color: #004a36;
+    display: flex; 
+    justify-content: center;
+     align-items: center;
+}
+.card-6{
+    color: #004a36;
+}
