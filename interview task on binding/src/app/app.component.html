@@ -1,0 +1,20 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          name
+        </th>
+        <th>
+          lastname
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of array[0].questions">
+        <td>{{item.qName}}</td>
+        <td>{{item.options}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
