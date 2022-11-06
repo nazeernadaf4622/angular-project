@@ -1,0 +1,33 @@
+<!-- <p>usercomponent works!</p> -->
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">username</th>
+        <th scope="col">email</th>
+        <th scope="col">suite</th>
+        <th scope="col">city</th>
+        <th scope="col">zipcode</th>
+        <th scope="col">lat</th>
+        <th scope="col">lng</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of result">
+          <td>{{u.id}}</td>
+          <td>{{u.name}}</td>
+          <td>{{u.username}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.address.zipcode}}</td>
+          <td>{{u.address.city}}</td>
+          <td>{{u.address.suite}}</td>
+          <td>{{u.address.geo.lat}}</td>
+          <td>{{u.address.geo.lng}}</td>
+          
+      </tr>
+    </tbody>
+  </table>
+  
+ 
+   
