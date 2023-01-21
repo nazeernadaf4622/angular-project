@@ -1,0 +1,100 @@
+.body{
+    /* background-image:url(''); */ 
+    font-family: 'Lucida Grande', tahoma,verdana,arial,sans-serif;
+    line-height: 1.28;
+    width: 100%;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.row{
+    align-items: center;
+    margin-top: 50px;
+}
+.item-1{
+    display: flex;
+    justify-content: center;
+}
+
+.item-2{
+    display: flex;
+    justify-content: center;
+}
+
+#CS {
+    margin-top: 70px;
+    margin-left: 8%;
+}
+
+#hcontent{
+    color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:  30px;
+    font-weight: bold;
+    width: 471px;
+    margin-left: 8%;
+}
+
+.mainCS{
+    min-height: 150px;  
+    max-width: 455px;
+    min-width: 270px;
+    border: 0.5px solid black;
+    background-color: #4c9e9e;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px;
+    box-shadow: 4px 4px 8px 4px rgb(24, 8, 39);
+    flex-grow:1;
+}
+
+#username{
+    padding: 13px 6px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: 100%;
+    /* font-family: inherit;
+    border: 1px solid #918f91;
+    background-color: rgb(226, 199, 252); */
+}
+
+#password{
+    padding: 13px 6px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.btn{
+    padding: 12px 6px;
+    font-size: 20px;
+    width: 100%;
+    background-color: #046337;
+    color: aliceblue;
+    border-radius: 10px;
+    border: #581299;
+    transition-duration: 0.4s;
+    
+}
+.btn:hover{
+    background-color: #6f56e0;
+    color: aliceblue;
+}
+
+#registration{
+    margin-inline-start: 30%;
+    font-family: inherit;
+    color: #010f20;
+}
+#forgotpassword{
+    color: #010f20;
+    font-family: inherit;
+}
+
+@media screen and (max-width: 800px ) {
+    .flexbox-item-1, .flexbox-item-2 {
+     flex: 100% ;
+   }
+}

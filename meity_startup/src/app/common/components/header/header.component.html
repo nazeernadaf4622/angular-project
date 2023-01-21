@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top train-navbar"
+    [ngStyle]="{'background':changeColo}">
+
+    <div class="container-fluid">
+        <button #toggleButton class="navbar-toggler-sidebutton" type="button" style="display: none;">
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+
+        <button #toggleButton class="navbar-toggler" type="button" (click)="togglePanel(toggleButton, togglePenal)">
+
+            <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="wrapper-logo "><a>
+                <div class="xbot_logo ng-star-inserted"></div>
+            </a></div>
+
+        <div class="header-actions ng-star-inserted">
+            <div class="header-org-bot-label ng-star-inserted">
+                <div class="header-bot-name ng-star-inserted" title="Airways"> Meity </div>
+                <div class="header-org-name ng-star-inserted" title="nnadaf@keypoint-tech.com"> ABC@gmail.com
+                </div>
+            </div>
+        </div>
+
+        <div class="cs-fill-space"></div>
+        <button aria-haspopup="true"
+            class="header-toolbar-button mat-focus-indicator mat-menu-trigger mat-icon-button mat-button-base ng-star-inserted"
+            mat-icon-button="" style="display: none;"><span class="mat-button-wrapper"><mat-icon
+                    class="cs-opacity-half mat-icon notranslate material-icons mat-icon-no-color ng-star-inserted"
+                    role="img" aria-hidden="true" data-mat-icon-type="font">more_vert</mat-icon></span><span
+                class="mat-button-ripple mat-ripple mat-button-ripple-round" matripple=""></span><span
+                class="mat-button-focus-overlay"></span></button>
+
+        <div #togglePenal class="header-actions pull-right ng-star-inserted action-icon-mb" id="navigation">
+
+            <div class="header-buttons ng-star-inserted">
+            </div>
+
+            <mat-slide-toggle (change)="toggleEvent($event.checked)"></mat-slide-toggle>
+            <div class="header-buttons ng-star-inserted">
+                <button class="your-bots-wrapper" title="Notifications">
+                    <mat-icon
+                        class="cs-opacity-half add-new-bot-text header-add-bot-icon material-icons-outlined mat-icon notranslate mat-white material-icons mat-icon-no-color"
+                        color="white" role="img" aria-hidden="true" data-mat-icon-type="font">notifications</mat-icon>
+                </button>
+            </div>
+            <div [matMenuTriggerFor]="menu"><span class="selected-lang">{{selectedLanguage}}</span> <i
+                    class="material-icons translate-icon">translate</i></div>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="selectedLang('en','English')">Engish</button>
+                <button mat-menu-item (click)="selectedLang('nl','हिन्दी')">हिन्दी</button>
+            </mat-menu>
+            <div class="header-buttons"><button class="your-bots-wrapper" title="Logout"><mat-icon
+                        class="add-new-bot-text logout-icon mat-icon notranslate mat-white material-icons mat-icon-no-color"
+                        color="white" role="img" aria-hidden="true" data-mat-icon-type="font"> logout
+                    </mat-icon></button>
+            </div>
+        </div>
+
+        <div class="cdk-overlay-container">
+            <!-- <div class="cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing "></div> -->
+            <div class="cdk-overlay-connected-position-bounding-box display-popup-icons" dir="ltr"
+                style="top: 66px;height: 866px;width: 57px;align-items: flex-start;justify-content: flex-start;right: 2%;">
+                <div id="cdk-overlay-3" class="cdk-overlay-pane" style="position: static;">
+                    <div class="mat-menu-panel ng-trigger ng-trigger-transformMenu ng-tns-c15-3 mat-menu-after mat-menu-below mat-elevation-z4 ng-star-inserted"
+                        role="menu" tabindex="-1" id="mat-menu-panel-0" style="transform-origin: left top;">
+                        <div class="mat-menu-content">
+                            <button class="mat-focus-indicator mat-menu-item ng-star-inserted" disableripple="true"
+                                mat-menu-item="" title="Contact Us" role="menuitem" tabindex="0" aria-disabled="false">
+                                <mat-slide-toggle (change)="toggleEvent($event.checked)"></mat-slide-toggle>
+                            </button>
+                            <button class="mat-focus-indicator mat-menu-item ng-star-inserted" disableripple="true"
+                                mat-menu-item="" title="Demo Page" role="menuitem" tabindex="0"
+                                aria-disabled="false"><mat-icon
+                                    class="userSettings-icon mat-icon notranslate mat-primary material-icons"
+                                    color="primary" role="img" aria-hidden="true"
+                                    data-mat-icon-type="font">translate</mat-icon>
+                                <div class="mat-menu-ripple mat-ripple" matripple=""></div>
+                            </button>
+                            <button class="mat-focus-indicator mat-menu-item ng-star-inserted" disableripple="true"
+                                mat-menu-item="" title="Demo Page" role="menuitem" tabindex="0"
+                                aria-disabled="false"><mat-icon
+                                    class="userSettings-icon mat-icon notranslate mat-primary material-icons"
+                                    color="primary" role="img" aria-hidden="true"
+                                    data-mat-icon-type="font">notifications</mat-icon>
+                                <div class="mat-menu-ripple mat-ripple" matripple=""></div>
+                            </button>
+                            <button class="mat-focus-indicator mat-menu-item ng-star-inserted" disableripple="true"
+                                mat-menu-item="" title="Demo Page" role="menuitem" tabindex="0"
+                                aria-disabled="false"><mat-icon
+                                    class="userSettings-icon mat-icon notranslate mat-primary material-icons"
+                                    color="primary" role="img" aria-hidden="true"
+                                    data-mat-icon-type="font">logout</mat-icon>
+                                <div class="mat-menu-ripple mat-ripple" matripple=""></div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

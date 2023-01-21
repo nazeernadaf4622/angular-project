@@ -1,0 +1,45 @@
+<head>
+    <title>Log-In Page</title>
+</head>
+
+<body class="body">
+    <header class="logo">
+        <!-- <h1 id="CS"><img src=""></h1> -->
+    </header>
+    <div class="row">
+        <div class="col container item-1">
+            <p id="hcontent">meity</p>
+        </div>
+
+        <div class="col container item-2">
+            <form class="mainCS" name="myform">
+                <div style="text-align: center;">
+                </div>
+                <mat-form-field id="username" appearance="fill" [hideRequiredMarker]="hideRequiredMarker">
+                    <mat-label>Username</mat-label>
+                    <input type="text" matInput [formControl]="username" required placeholder="username" autofocus
+                        maxlength="10">
+                    <mat-error *ngIf="username.hasError('required')">
+                        Username is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br>
+
+                <mat-form-field id="password" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hide ? 'password' : 'text'" matInput [formControl]="password">
+                    <button style="border: aliceblue;" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password.hasError('required')">
+                        Password is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <br><br>
+                <button class="btn btn-outline-dark" type="submit" id="login"><b>Register</b></button>
+                <hr>
+            </form>
+        </div>
+    </div>
+</body>

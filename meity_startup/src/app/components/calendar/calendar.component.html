@@ -1,0 +1,7 @@
+<app-dashboard></app-dashboard>
+
+<span class="calendar-container">
+    <ngx-event-calendar [showAddButton]="true" [language]="'en'" [dataSource]="dataArray"
+        (dayEvents)="selectDay($event)">
+    </ngx-event-calendar>
+</span>

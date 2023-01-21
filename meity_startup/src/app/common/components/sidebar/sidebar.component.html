@@ -1,0 +1,143 @@
+<!-- <div class="container-fluid">
+    <nav class="nav">
+        <ul>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-user" aria-hidden="true">
+                        <span class="nav-item">abc</span>
+                    </i>
+                </a>
+            </li>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-home" aria-hidden="true">
+                        <span class="nav-item">Home</span>
+                    </i>
+                </a>
+            </li>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-line-chart" aria-hidden="true">
+                        <span class="nav-item">services</span>
+                    </i>
+                </a>
+            </li>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-mobile" aria-hidden="true">
+                        <span class="nav-item"> analysis</span>
+                    </i>
+                </a>
+            </li>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-mobile" aria-hidden="true">
+                        <span class="nav-item">contact</span>
+                    </i>
+                </a>
+            </li>
+            <li class="lines">
+                <a href="" class="logo">
+                    <i class="fa fa-mobile" aria-hidden="true">
+                        <span class="nav-item">help</span>
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div> -->
+
+
+<section class="sidebar side-drawer" [ngStyle]="{'background':changeColourBg}">
+  <div class="nav-header">
+    <p class="logo"></p>
+    <!-- <i class="bx bx-menu-alt-right btn-menu"></i> -->
+    <button #toggleButton class="navbar-toggler" type="button">
+
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+  </div>
+  <ul class="nav-links">
+    <!-- <li>
+        <i class="bx bx-search search-btn"></i>
+
+        <input type="text" placeholder="search..." />
+        <span class="tooltip">Search</span>
+      </li> -->
+    <li>
+      <a routerLink="/challenge">
+        <i class="bx bx-home-alt-2"></i>
+        <span class="title">{{ 'Challenge' | translate}}</span>
+      </a>
+      <span class="tooltip">Challenge</span>
+    </li>
+    <li>
+      <a routerLink="/connect">
+        <i class="bx bx-phone-call"></i>
+        <span class="title">{{'Connect'| translate}}</span>
+      </a>
+      <span class="tooltip">Connect</span>
+    </li>
+    <li>
+      <a routerLink="/management">
+        <i class="bx bx-bookmark"></i>
+        <span class="title">{{'Management' | translate }}</span>
+      </a>
+      <span class="tooltip">Grant-management</span>
+    </li>
+    <li>
+      <a routerLink="/incubator">
+        <i class="bx bx-wallet-alt"></i>
+        <span class="title">{{'Incubator' | translate}}</span>
+      </a>
+      <span class="tooltip">Incubator</span>
+    </li>
+    <li>
+      <a routerLink="/queryHandling">
+        <i class="bx bxs-devices"></i>
+        <span class="title">{{'Query-Handling' | translate }}</span>
+      </a>
+      <span class="tooltip">Query-Handling</span>
+    </li>
+    <li>
+      <a routerLink="/startup">
+        <i class="bx bx-cog"></i>
+        <span class="title">{{'StartUp' | translate}}</span>
+      </a>
+      <span class="tooltip">StartUp</span>
+    </li>
+    <li>
+      <a routerLink="/calendar">
+        <i class="bx bx-calendar"></i>
+        <span class="title">{{'Calendar' | translate}}</span>
+      </a>
+      <span class="tooltip">Calendar</span>
+    </li>
+    <!-- <li>
+      <a routerLink="/calendar">
+        <i class="bx bx-calendar"></i>
+        <span class="title"></span>
+      </a>
+      <span class="tooltip"></span>
+    </li>
+    <li>
+      <a routerLink="/calendar">
+        <i class="bx bx-calendar"></i>
+        <span class="title"></span>
+      </a>
+      <span class="tooltip"></span>
+    </li> -->
+  </ul>
+  <div class="theme-wrapper foot">
+    <span class="">
+      <h3>TRAIN</h3>
+    </span>
+  </div>
+  <!-- <div class="theme-wrapper">
+    <i class="bx bxs-moon theme-icon"></i>
+    <p>dark</p>
+    <div class="theme-btn">
+      <span class="theme-ball"></span>
+    </div>
+  </div> -->
+</section>

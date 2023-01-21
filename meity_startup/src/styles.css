@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.bg-colour-pink{
+    background: rgb(238, 150, 165)!important;
+  }
+  
+  .bg-colour-blue{
+    background: rgb(50, 50, 233)!important;
+  }
+  
+  .bg-colur-red{
+    background: rgb(228, 75, 75)!important;
+  }
+  
